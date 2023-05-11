@@ -19,7 +19,9 @@ function Product(props) {
     //send request to backend
     const existItem = cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(
+      `http://localhost:5005/api/products/${item._id}`
+    );
 
     if (data.countInStock < quantity) {
       window.alert('מלאי המוצר אזל.');

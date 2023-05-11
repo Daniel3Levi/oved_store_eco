@@ -45,7 +45,7 @@ export default function PlaceOrderScreen() {
       dispatch({ type: 'CREATE_REQUEST' });
 
       const { data } = await Axios.post(
-        '/api/orders',
+        'http://localhost:5005/api/orders',
         {
           orderItems: cart.cartItems,
           shippingAddress: cart.shippingAddress,
@@ -67,7 +67,7 @@ export default function PlaceOrderScreen() {
       navigate(`/order/${data.order._id}`);
     } catch (error) {
       dispatch({ type: 'CREATE_FILE' });
-      toast.error(getError(error));
+      toast.error(getError(error.message));
     }
   };
 

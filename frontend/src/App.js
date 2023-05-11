@@ -44,7 +44,9 @@ function App() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data } = await axios.get(`/api/products/categories`);
+        const { data } = await axios.get(
+          `http://localhost:5005/api/products/categories`
+        );
         setCategories(data);
       } catch (err) {
         toast.error(getError(err));

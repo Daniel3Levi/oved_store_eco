@@ -29,7 +29,7 @@ export default function ProfileScreen() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
+  const [{ loading }, dispatch] = useReducer(reducer, {
     loadingUpdate: false,
   });
 
@@ -43,7 +43,7 @@ export default function ProfileScreen() {
     }
     try {
       const { data } = await axios.put(
-        '/api/users/profile',
+        'http://localhost:5005/api/users/profile',
         {
           name,
           email,

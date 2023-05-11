@@ -32,10 +32,13 @@ function SigninScreen() {
     e.preventDefault(); // prevent page refreshing
     try {
       // sending ajax req to backend ('http://localhost:5000/api/users/signin')
-      const { data } = await Axios.post('/api/users/signin', {
-        email,
-        password,
-      });
+      const { data } = await Axios.post(
+        'http://localhost:5005/api/users/signin',
+        {
+          email,
+          password,
+        }
+      );
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       // save user info in browser
       localStorage.setItem('userInfo', JSON.stringify(data));

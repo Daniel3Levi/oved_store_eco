@@ -39,12 +39,15 @@ function SignupScreen() {
       return;
     }
     try {
-      // sending ajax req to backend ('http://localhost:5000/api/users/signup')
-      const { data } = await Axios.post('/api/users/signup', {
-        name,
-        email,
-        password,
-      });
+      // sending ajax req to backend ('http://localhost:5005/api/users/signup')
+      const { data } = await Axios.post(
+        'http://localhost:5005/api/users/signup',
+        {
+          name,
+          email,
+          password,
+        }
+      );
       ctxDispatch({ type: 'USER_SIGNIN', payload: data });
       // save user info in browser
       localStorage.setItem('userInfo', JSON.stringify(data));

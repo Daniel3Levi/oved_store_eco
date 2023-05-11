@@ -5,6 +5,7 @@ import userRouter from './routes/userRouter.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import orderRouter from './routes/orderRouter.js';
+import cors from 'cors';
 // import path from 'path';
 
 dotenv.config();
@@ -22,6 +23,7 @@ const app = express();
 // needed for the form data post req to be converted to json object inside req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
